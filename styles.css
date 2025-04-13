@@ -1,0 +1,134 @@
+body {  
+    display: flex;  
+    justify-content: center;  
+    align-items: center;  
+    height: 100vh;  
+    margin: 0;  
+    background-color: #f0f0f0;  
+}  
+
+.container {  
+    display: flex;  
+    flex-wrap: wrap;  
+    justify-content: center;  
+    width: 80%;  
+}  
+
+.card {  
+    background-image: url('./IMG/mountains-6865752_1280.jpg'); /* imagem de fundo */
+    background-size: cover; /* cobre todo o card */
+    background-position: center; /* centraliza a imagem */
+    background-repeat: no-repeat;
+
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    overflow: hidden;
+    width: 250px;
+    height: 300px; /* define altura do card */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}  
+
+.card img {  
+    width: 100%; /* A imagem do card ocupará 100% da largura */  
+    height: auto; /* Mantém a proporção da imagem */  
+}  
+
+.card::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%; /* cobre metade inferior */
+    background-color: white;
+    z-index: 0; /* fica atrás da face-image */
+}
+
+/* Ajuste para a imagem da face */  
+.face-image {  
+    width: 100px !important;
+    height: 100px !important;
+    border-radius: 50%;
+    object-fit: cover;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid white;
+    z-index: 1;
+}  
+
+/* Estilos para nome e email */  
+.name {  
+    font-size: 1.2em;  
+    font-weight: bold;  
+    margin-top: 200px; /* Espaçamento acima do nome para evitar sobreposição */  
+    z-index: 0; /* Para garantir que fique atrás da imagem do rosto */  
+    position: relative; /* Necessário para que o z-index funcione corretamente */  
+    z-index: 2;
+}  
+
+.email {  
+    font-size: 0.9em;  
+    color: #555;  
+    z-index: 0; /* Para garantir que fique atrás da imagem do rosto */  
+    position: relative; /* Necessário para que o z-index funcione corretamente */  
+    margin-bottom: 10px; /* Espaçamento na parte inferior */ 
+    z-index: 2; 
+}  
+
+/* Estilos para as ações */  
+.actions {  
+    display: flex;  
+    justify-content: space-between;  
+    align-items: center;  
+    width: 100%; /* Para ocupar a largura do card */  
+    padding: 5px 15px; /* Espaçamento interno */  
+}  
+
+.card-actions {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    padding: 0px 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1; /* acima da tarja branca */
+}
+
+.action-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    margin: 50 5px;
+}
+
+
+/* Estilo do ícone de lixeira */  
+.delete {  
+    color: red; /* Cor da lixeira */  
+    text-decoration: none; /* Remove sublinhado do link */ 
+    z-index: 2; 
+}  
+
+/* Estilo do link de redirecionamento */  
+.redirect {  
+    color: blue; /* Cor do link */  
+    text-decoration: none; /* Remove sublinhado do link */  
+    z-index: 2;
+}  
+
+/* Adicionando um layout responsivo */  
+@media (min-width: 768px) {  
+    .card {  
+        width: calc(33.33% - 20px); /* Para três colunas */  
+    }  
+}  
